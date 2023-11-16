@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import { Container } from "@mui/material";
 import Header from "@/components/Header";
 import Providers from "@/components/Providers";
-import "@/styles/normalize.css";
+import "@/styles/global.css";
 
 const inter = Inter({
   subsets: ["latin", "cyrillic", "cyrillic-ext", "latin-ext"],
