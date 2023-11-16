@@ -7,13 +7,13 @@ import {
 } from "@mui/material";
 
 type TProps = {
-  label: string;
+  label?: string;
   values: string[];
 };
 export default function FormRadioGroup({ label, values }: TProps) {
   return (
     <FormControl>
-      <FormLabel>{label}</FormLabel>
+      {label && <FormLabel>{label}</FormLabel>}
       <RadioGroup defaultValue={values[0]} name="radio-buttons-group">
         {values.map((value) => {
           return (

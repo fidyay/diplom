@@ -1,10 +1,8 @@
 "use client";
 import ContinueButton from "@/components/ContinueButton";
 import PageTitle from "@/components/PageTitle";
-import { Box, MenuItem } from "@mui/material";
+import { Box } from "@mui/material";
 import CancelButton from "@/components/CancelButton";
-import FormSelect from "@/components/FormSelect";
-import FormRadioGroup from "@/components/FormRadioGroup";
 import FormStepper from "@/components/FormStepper";
 import FormSlider from "@/components/FormSlider";
 
@@ -37,18 +35,6 @@ export default function BreedPage() {
       <FormStepper steps={catWeight} />
 
       <FormSlider label="Статура" breakpoints={weightBreakpoints} />
-
-      {/* <FormSelect label="Порода">
-        {catBreeds.map((breed) => {
-          return (
-            <MenuItem key={breed} value={breed}>
-              {breed}
-            </MenuItem>
-          );
-        })}
-      </FormSelect> */}
-
-      {/* <FormRadioGroup label="Стать" values={genders} /> */}
 
       <ContinueButton onClick={() => 1} />
       <CancelButton onClick={() => 1} />
