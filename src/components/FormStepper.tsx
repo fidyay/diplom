@@ -37,10 +37,10 @@ function AddSubstactButton({ icon, onClick, disabled }: TIconButtonProps) {
 }
 
 type TProps = {
-  label: string;
+  label?: string;
   steps: string[];
 };
-export default function FormStepper({ label, steps }: TProps) {
+export default function FormStepper({ label = "", steps }: TProps) {
   const [step, setStep] = useState(0);
 
   const addStep = useCallback(() => {
@@ -54,7 +54,7 @@ export default function FormStepper({ label, steps }: TProps) {
 
   return (
     <FormControl fullWidth>
-      <FormLabel sx={{ mb: "16px" }}>{label}</FormLabel>
+      {label && <FormLabel sx={{ mb: "16px" }}>{label}</FormLabel>}
       <Box
         sx={{
           display: "flex",
