@@ -29,7 +29,11 @@ export default function BreedPage() {
     <PageWrapper title="Вага">
       <FormStepper steps={catWeight} />
 
-      <FormSlider label="Статура" breakpoints={weightBreakpoints} />
+      <FormSlider
+        sx={{ mt: 3 }}
+        label="Статура"
+        breakpoints={weightBreakpoints}
+      />
     </PageWrapper>
   );
 }

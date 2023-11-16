@@ -6,7 +6,7 @@ import Providers from "@/components/Providers";
 import "@/styles/global.css";
 
 const inter = Inter({
-  subsets: ["latin", "cyrillic", "cyrillic-ext", "latin-ext"],
+  subsets: ["cyrillic", "cyrillic-ext", "latin", "latin-ext"],
 });
 
 export const metadata: Metadata = {
@@ -25,6 +25,7 @@ export default function RootLayout({
         <Providers>
           <Container
             sx={{
+              position: "relative",
               height: "100vh",
               display: "flex",
               flexDirection: "column",

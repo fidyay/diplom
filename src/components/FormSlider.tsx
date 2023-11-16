@@ -1,11 +1,13 @@
 "use client";
 import hexToRGBA from "@/utils/hexToRGBA";
+import { Theme } from "@emotion/react";
 import {
   Box,
   Button,
   Divider,
   FormControl,
   FormLabel,
+  SxProps,
   Typography,
   useTheme,
 } from "@mui/material";
@@ -51,15 +53,16 @@ function Connector() {
 type TProps = {
   label: string;
   breakpoints: Record<string, string>;
+  sx?: SxProps<Theme>;
 };
 
-export default function FormSlider({ label, breakpoints }: TProps) {
+export default function FormSlider({ label, breakpoints, sx }: TProps) {
   const breakpointsArray = Object.keys(breakpoints);
   const [selectedBreakpoint, setSelectedBreakpoint] = useState(
     breakpointsArray[0]
   );
   return (
-    <FormControl fullWidth>
+    <FormControl sx={sx} fullWidth>
       <FormLabel sx={{ mb: "16px" }}>{label}</FormLabel>
       <Box sx={{ width: "100%" }}>
         <Box sx={{ width: "100%", display: "flex", alignItems: "center" }}>
@@ -84,7 +87,7 @@ export default function FormSlider({ label, breakpoints }: TProps) {
           })}
         </Box>
 
-        <Box>
+        <Box sx={{ mt: 3 }}>
           <Typography
             sx={{
               textAlign: "center",
