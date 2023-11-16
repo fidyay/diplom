@@ -4,15 +4,18 @@ import {
   FormLabel,
   Radio,
   RadioGroup,
+  SxProps,
+  Theme,
 } from "@mui/material";
 
 type TProps = {
   label?: string;
   values: string[];
+  sx?: SxProps<Theme>;
 };
-export default function FormRadioGroup({ label, values }: TProps) {
+export default function FormRadioGroup({ label, values, sx }: TProps) {
   return (
-    <FormControl>
+    <FormControl sx={sx}>
       {label && <FormLabel>{label}</FormLabel>}
       <RadioGroup defaultValue={values[0]} name="radio-buttons-group">
         {values.map((value) => {

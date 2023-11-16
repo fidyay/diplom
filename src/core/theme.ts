@@ -17,10 +17,6 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: "Inter",
-    h1: {
-      fontWeight: 500,
-      fontSize: 28,
-    },
   },
   components: {
     MuiTextField: {

@@ -2,7 +2,7 @@
 import ContinueButton from "@/components/ContinueButton";
 import PageTitle from "@/components/PageTitle";
 import { Box } from "@mui/material";
-import Paws from "@/components/svg_components/Paws";
+import Paws from "@/components/Paws";
 import FormField from "@/components/FormField";
 
 export default function StartPage() {

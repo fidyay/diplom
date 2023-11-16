@@ -1,10 +1,7 @@
 "use client";
-import ContinueButton from "@/components/ContinueButton";
-import PageTitle from "@/components/PageTitle";
-import { Box } from "@mui/material";
-import CancelButton from "@/components/CancelButton";
 import FormStepper from "@/components/FormStepper";
 import FormSlider from "@/components/FormSlider";
+import PageWrapper from "@/components/PageWrapper";
 
 const catWeight = [
   "До 1 кг",
@@ -29,15 +26,10 @@ const weightBreakpoints = {
 
 export default function BreedPage() {
   return (
-    <Box>
-      <PageTitle>Вага</PageTitle>
-
+    <PageWrapper title="Вага">
       <FormStepper steps={catWeight} />
 
       <FormSlider label="Статура" breakpoints={weightBreakpoints} />
-
-      <ContinueButton onClick={() => 1} />
-      <CancelButton onClick={() => 1} />
-    </Box>
+    </PageWrapper>
   );
 }

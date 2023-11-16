@@ -16,7 +16,7 @@ export default function ContinueButton({ onClick, disabled }: TProps) {
       disabled={disabled}
       onClick={onClick}
       fullWidth
-      sx={{ mt: 3, fontWeight: 600, gap: "12px" }}
+      sx={{ my: 3, fontWeight: 600, gap: "12px" }}
     >
       Повернутись
     </Button>
