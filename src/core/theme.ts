@@ -22,6 +22,17 @@ const theme = createTheme({
       fontSize: 28,
     },
   },
+  components: {
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          width: "100%",
+          marginBottom: "10px",
+          marginTop: "10px",
+        },
+      },
+    },
+  },
 });
 
 export default theme;

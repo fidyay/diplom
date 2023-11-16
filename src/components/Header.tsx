@@ -8,10 +8,11 @@ export default function Header() {
   return (
     <Box
       sx={{
-        m: "auto",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        flexGrow: 0,
+        flexShrink: 0,
       }}
     >
       {pathname === "/" && (
@@ -26,6 +27,8 @@ export default function Header() {
             alignItems: "center",
             borderRadius: "10px",
             boxShadow: "0px 2px 4px 0.5px " + theme.palette.primary.main,
+            fontWeight: 600,
+            fontSize: 22,
           }}
         >
           logo
