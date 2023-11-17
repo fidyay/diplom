@@ -1,13 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import inter from "@/core/appFont";
 import { Container } from "@mui/material";
 import Header from "@/components/Header";
 import Providers from "@/components/Providers";
 import "@/styles/global.css";
-
-const inter = Inter({
-  subsets: ["cyrillic", "cyrillic-ext", "latin", "latin-ext"],
-});
 
 export const metadata: Metadata = {
   title: "Natural Cat Food",

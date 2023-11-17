@@ -1,6 +1,7 @@
 "use client";
 
 import { createTheme } from "@mui/material";
+import inter from "./appFont";
 
 const theme = createTheme({
   palette: {
@@ -16,7 +17,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: "Inter",
+    fontFamily: inter.style.fontFamily,
   },
   components: {
     MuiTextField: {
