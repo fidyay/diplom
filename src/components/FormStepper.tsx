@@ -1,13 +1,6 @@
 "use client";
 import { Icon } from "@iconify/react/dist/iconify.js";
-import {
-  Box,
-  FormControl,
-  FormLabel,
-  Button,
-  Typography,
-  IconButton,
-} from "@mui/material";
+import { Box, FormControl, FormLabel, Button, Typography } from "@mui/material";
 import { useCallback, useState } from "react";
 
 type TIconButtonProps = {
@@ -48,7 +41,9 @@ export default function FormStepper({
   value,
   onChange,
 }: TProps) {
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState(
+    steps.findIndex((step) => step === value) ?? 0
+  );
 
   const addStep = useCallback(() => {
     if (step < steps.length - 1) {

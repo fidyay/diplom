@@ -2,38 +2,37 @@
 import FormStepper from "@/components/FormStepper";
 import FormSlider from "@/components/FormSlider";
 import PageWrapper from "@/components/PageWrapper";
+import store, { catWeight, waistBreakpoints } from "@/core/store";
+import { observer } from "mobx-react";
+import { useRouter } from "next/navigation";
+import { useCallback, useState } from "react";
 
-const catWeight = [
-  "До 1 кг",
-  "1 кг",
-  "2 кг",
-  "3 кг",
-  "4 кг",
-  "5 кг",
-  "6 кг",
-  "7 кг",
-  "8 кг",
-  "9 кг",
-  "10 кг",
-];
+export default observer(function BreedPage() {
+  const [weight, setWeight] = useState(store.catWeight);
+  const [waist, setWaist] = useState(store.catWaist);
+  const router = useRouter();
 
-const weightBreakpoints = {
-  "Трохи худа": "Вузька талія і добре видно ребра",
-  "В самий раз":
-    "Видима талія з деяким жировим покривом, але ребра легко промацати",
-  "Трохи кремезна": "Талії не видно, а ребра важко промацати",
-};
+  const handleContinue = useCallback(() => {
+    store.catWaist = waist;
+    store.catWeight = weight;
+    router.push("/activity");
+  }, [router, waist, weight]);
 
-export default function BreedPage() {
   return (
-    <PageWrapper title="Вага">
-      <FormStepper steps={catWeight} />
+    <PageWrapper
+      previousLink="/breed"
+      title="Вага"
+      handleContinue={handleContinue}
+    >
+      <FormStepper value={weight} onChange={setWeight} steps={catWeight} />
 
       <FormSlider
+        value={waist}
+        onChange={setWaist}
         sx={{ mt: 3 }}
         label="Статура"
-        breakpoints={weightBreakpoints}
+        breakpoints={waistBreakpoints}
       />
     </PageWrapper>
   );
-}
+});

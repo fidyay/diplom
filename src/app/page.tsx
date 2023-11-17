@@ -17,7 +17,7 @@ export default observer(function StartPage() {
   const handleCatNameChange: ChangeEventHandler<HTMLInputElement> = useCallback(
     (e) => {
       const value = e.target.value;
-      if (value) setCatName(value);
+      if (typeof value === "string") setCatName(value);
     },
     []
   );
@@ -25,7 +25,7 @@ export default observer(function StartPage() {
   const handleUserNameChange: ChangeEventHandler<HTMLInputElement> =
     useCallback((e) => {
       const value = e.target.value;
-      if (value) setUserName(value);
+      if (typeof value === "string") setUserName(value);
     }, []);
 
   const handleContinue = useCallback(() => {

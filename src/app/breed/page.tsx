@@ -28,7 +28,7 @@ export default observer(function BreedPage() {
   );
 
   const handleContinue = useCallback(() => {
-    router.push("/activity");
+    router.push("/weight");
     store.catAge = age;
     store.catBreed = breed;
     store.catGender = gender;
