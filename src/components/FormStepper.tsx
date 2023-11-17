@@ -39,18 +39,31 @@ function AddSubstactButton({ icon, onClick, disabled }: TIconButtonProps) {
 type TProps = {
   label?: string;
   steps: string[];
+  value: string;
+  onChange: (val: string) => void;
 };
-export default function FormStepper({ label = "", steps }: TProps) {
+export default function FormStepper({
+  label = "",
+  steps,
+  value,
+  onChange,
+}: TProps) {
   const [step, setStep] = useState(0);
 
   const addStep = useCallback(() => {
     if (step < steps.length - 1) {
-      setStep(step + 1);
+      const newStep = step + 1;
+      setStep(newStep);
+      onChange(steps[newStep]);
     }
-  }, [step, steps.length]);
+  }, [onChange, step, steps]);
   const substractStep = useCallback(() => {
-    if (step > 0) setStep(step - 1);
-  }, [step]);
+    if (step > 0) {
+      const newStep = step - 1;
+      setStep(newStep);
+      onChange(steps[newStep]);
+    }
+  }, [onChange, step, steps]);
 
   return (
     <FormControl fullWidth>
@@ -68,7 +81,7 @@ export default function FormStepper({ label = "", steps }: TProps) {
           onClick={substractStep}
         />
 
-        <Typography sx={{ fontSize: 18 }}>{steps[step]}</Typography>
+        <Typography sx={{ fontSize: 18 }}>{value}</Typography>
 
         <AddSubstactButton
           icon="ic:round-plus"

@@ -1,18 +1,32 @@
 "use client";
 import FormSlider from "@/components/FormSlider";
 import PageWrapper from "@/components/PageWrapper";
+import store, { activityBreakpoints } from "@/core/store";
+import { observer } from "mobx-react";
+import { useRouter } from "next/navigation";
+import { useCallback, useState } from "react";
 
-const activityBreakpoints = {
-  "Серійний сонник": "До 20 хвилин ходьби на день",
-  "Дещо активна": "0.5 - 1 година активностей на день",
-  "Дуже активна": "2 - 3 години активностей на день",
-  Атлет: "Більше 3 годин активностей на день",
-};
+export default observer(function ActivityPage() {
+  const router = useRouter();
+  const [activity, setActivity] = useState(store.catActivity);
 
-export default function ActivityPage() {
+  const handleContinue = useCallback(() => {
+    router.push("/illnesses");
+    store.catActivity = activity;
+  }, [activity, router]);
+
   return (
-    <PageWrapper title="Активність">
-      <FormSlider label="Рівень активності" breakpoints={activityBreakpoints} />
+    <PageWrapper
+      handleContinue={handleContinue}
+      previousLink="/breed"
+      title="Активність"
+    >
+      <FormSlider
+        value={activity}
+        onChange={setActivity}
+        label="Рівень активності"
+        breakpoints={activityBreakpoints}
+      />
     </PageWrapper>
   );
-}
+});

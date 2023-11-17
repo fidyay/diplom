@@ -4,14 +4,12 @@ import { Theme } from "@emotion/react";
 import {
   Box,
   Button,
-  Divider,
   FormControl,
   FormLabel,
   SxProps,
   Typography,
   useTheme,
 } from "@mui/material";
-import { useState } from "react";
 
 type TBreakpointButtonProps = {
   onClick: () => void;
@@ -54,13 +52,19 @@ type TProps = {
   label: string;
   breakpoints: Record<string, string>;
   sx?: SxProps<Theme>;
+  value: string;
+  onChange: (val: string) => void;
 };
 
-export default function FormSlider({ label, breakpoints, sx }: TProps) {
+export default function FormSlider({
+  label,
+  breakpoints,
+  sx,
+  value,
+  onChange,
+}: TProps) {
   const breakpointsArray = Object.keys(breakpoints);
-  const [selectedBreakpoint, setSelectedBreakpoint] = useState(
-    breakpointsArray[0]
-  );
+
   return (
     <FormControl sx={sx} fullWidth>
       <FormLabel sx={{ mb: "16px" }}>{label}</FormLabel>
@@ -78,8 +82,8 @@ export default function FormSlider({ label, breakpoints, sx }: TProps) {
                 key={breakpoint}
               >
                 <BreakpointButton
-                  onClick={() => setSelectedBreakpoint(breakpoint)}
-                  active={breakpoint === selectedBreakpoint}
+                  onClick={() => onChange(breakpoint)}
+                  active={breakpoint === value}
                 />
                 {!isLast && <Connector />}
               </Box>
@@ -96,7 +100,7 @@ export default function FormSlider({ label, breakpoints, sx }: TProps) {
               color: "secondary.main",
             }}
           >
-            {selectedBreakpoint}
+            {value}
           </Typography>
           <Typography
             sx={{
@@ -106,7 +110,7 @@ export default function FormSlider({ label, breakpoints, sx }: TProps) {
               color: "secondary.main",
             }}
           >
-            {breakpoints[selectedBreakpoint]}
+            {breakpoints[value]}
           </Typography>
         </Box>
       </Box>
