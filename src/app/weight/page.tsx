@@ -2,7 +2,7 @@
 import FormStepper from "@/components/FormStepper";
 import FormSlider from "@/components/FormSlider";
 import PageWrapper from "@/components/PageWrapper";
-import store, { catWeight, waistBreakpoints } from "@/core/store";
+import store, { catWeightArr, waistBreakpoints } from "@/core/store";
 import { observer } from "mobx-react";
 import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
@@ -24,7 +24,7 @@ export default observer(function BreedPage() {
       title="Вага"
       handleContinue={handleContinue}
     >
-      <FormStepper value={weight} onChange={setWeight} steps={catWeight} />
+      <FormStepper value={weight} onChange={setWeight} steps={catWeightArr} />
 
       <FormSlider
         value={waist}

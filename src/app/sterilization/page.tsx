@@ -7,8 +7,7 @@ import { useRouter } from "next/navigation";
 import { ChangeEventHandler, useCallback, useState } from "react";
 
 export default observer(function ActivityPage() {
-  // const router = useRouter();
-  console.log(store);
+  const router = useRouter();
 
   const [sterilization, setSterilization] = useState(
     store.hasSterilization ? boolValuesUA[1] : boolValuesUA[2]
@@ -23,9 +22,9 @@ export default observer(function ActivityPage() {
   );
 
   const handleContinue = useCallback(() => {
-    // router.push("/sterilization");
+    router.push("/results");
     store.hasIllness = sterilization === "Є";
-  }, [sterilization]);
+  }, [router, sterilization]);
   return (
     <PageWrapper
       previousLink="/illnesses"
