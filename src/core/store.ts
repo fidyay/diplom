@@ -60,16 +60,16 @@ export const waistBreakpoints = {
 };
 
 class Store {
-  catName: string = "";
-  userName: string = "";
+  catName = "";
+  userName = "";
   catBreed: string = catBreeds[0];
   catGender: string = genders[0];
   catAge: string = catAges[0];
   catWeight: string = catWeightArr[0];
   catWaist: string = Object.keys(waistBreakpoints)[0];
   catActivity: string = Object.keys(activityBreakpoints)[0];
-  hasIllness: boolean = false;
-  hasSterilization: boolean = false;
+  hasIllness = false;
+  hasSterilization = false;
   constructor() {
     makeAutoObservable(this);
   }

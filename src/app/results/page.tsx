@@ -7,7 +7,9 @@ import { observer } from "mobx-react";
 import { useCallback } from "react";
 
 export default observer(function ResultsPage() {
-  const handleContinue = useCallback(() => {}, []);
+  const handleContinue = useCallback(() => {
+    throw new Error("Not implemented yet");
+  }, []);
 
   return (
     <PageWrapper
